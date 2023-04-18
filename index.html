@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+</head>
+<style>
+.calculator{
+
+height: 11rem;
+display: grid;
+
+max-inline-size: 22rem;
+border-radius: 10px; 
+overflow: hidden;
+justify-content: center;
+align-items: center;
+box-shadow: 12px 12px 12px 12px rgb(161, 157, 157);
+margin:auto;
+}
+.output{
+  font-size: 2rem;
+  text-align: end; 
+  background-color: rgb(19, 11, 1);
+  color: aliceblue;
+  border: solid black 0.1px;
+  
+}
+.keys{
+   display:grid;
+   grid-template-columns: auto auto auto auto;
+   grid-gap: 1px;
+   font-size: 2rem;
+   background: hsl(208, 24%, 74%);
+   border: none;
+
+}
+.operator{
+    background: hsl(208, 25%, 86%);
+    border:none;
+    
+}
+.mainKeys{
+    border:none;
+    
+}
+.mainKeys:active,
+.mainKeys:focus {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+  outline: none;
+}
+.equalTo{
+
+    grid-row: 2/span 4;
+    grid-column: 4/5;
+    background: hsl(264, 2%, 46%);
+    border: none;
+}
+#result{
+   
+}
+</style>
+<body>
+    <h1>CALCULATOR</h1>
+    <hr>
+    <div class="calculator">
+        <div class="output" id="result"></div>
+        <div class="keys">
+            <button class="operator" onclick="num('+')">+</button>
+            <button class="operator" onclick="num('/')">÷</button>
+            <button class="operator" onclick="num('-')">-</button>
+            <button class="operator" onclick="num('*')">&times</button>
+            <button class="mainKeys" onclick="num('1')">1</button>
+            <button class="mainKeys" onclick="num('2')">2</button>
+            <button class="mainKeys" onclick="num('3')">3</button>
+            <button class="mainKeys" onclick="num('4')">4</button>
+            <button class="mainKeys" onclick="num('5')">5</button>
+            <button class="mainKeys" onclick="num('6')">6</button>
+            <button class="mainKeys" onclick="num('7')">7</button>
+            <button class="mainKeys" onclick="num('8')">8</button>
+            <button class="mainKeys" onclick="num('9')">9</button>
+            <button class="mainKeys" onclick="num('0')">0</button>
+            <button class="mainKeys" onclick="num('.')">.</button>
+            <button class="mainKeys" onclick="clearScreen()">AC</button>
+            <button class="equalTo" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+function num(value) 
+{
+document.getElementById("result").innerText += value;
+}
+function clearScreen() 
+{
+    document.getElementById("result").innerText = "";
+}
+
+
+function calculate() 
+{
+var p = document.getElementById("result").innerText;
+var q = eval(p);
+document.getElementById("result").innerText = q;
+}
+</script>
+</body>
+</html>
